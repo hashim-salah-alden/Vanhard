@@ -108,7 +108,7 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="bg-primrycolor-dark text-slate-200 overflow-hidden relative"
+      className="bg-gradient-to-br from-primrycolor-dark via-primrycolor-dark to-primrycolor-light text-slate-200 overflow-hidden relative"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10">

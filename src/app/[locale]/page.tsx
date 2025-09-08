@@ -54,10 +54,10 @@ export default function Page() {
       <ControlFreedomSection />
       <ExplorePlatform />
       <ProcessWorkflow />
-      <WhatSetsUsApart />
+      {/* <WhatSetsUsApart />
       <Reviews />
-      <CtaBanner />
-      <Testimonials />
+      <CtaBanner /> */}
+      {/* <Testimonials /> */}
     </section>
   );
 }

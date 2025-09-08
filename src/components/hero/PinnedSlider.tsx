@@ -119,7 +119,7 @@ export default function Home() {
           // Update background
           if (backgroundRef.current) {
             const currentBg = slides[slideIndex].bgColor;
-            backgroundRef.current.className = `absolute inset-0  ${currentBg} transition-all duration-1000`;
+            backgroundRef.current.className = `absolute inset-0  ${currentBg} transition-all duration-1000 bg-dots`;
           }
         },
       });
@@ -168,6 +168,7 @@ export default function Home() {
           <h2 className="text-xl md:text-3xl font-semibold md:mb-8 text-primary-foreground/90">
             YOUR INFRASTRUCTURE, INSTALLED BY EXPERTS
           </h2>
+          <div className="w-20 h-1 my-3 bg-blue-500 mx-auto rounded-full"></div>
         </div>
         {/* Dynamic Background */}
         <div ref={backgroundRef} className="absolute inset-0 bg-[#171717]" />

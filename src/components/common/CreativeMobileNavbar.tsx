@@ -206,7 +206,7 @@ const CreativeMobileNavbar: React.FC = () => {
               </div>
 
               <motion.div
-                className="relative h-full flex flex-col justify-between p-8 pt-20  bg-primrycolor-dark"
+                className="relative h-full flex flex-col justify-between p-8 pt-20  bg-gradient-to-br from-primrycolor-dark via-primrycolor-dark to-primrycolor-light"
                 variants={menuVariants}
                 initial="closed"
                 animate="open"
@@ -252,11 +252,11 @@ const CreativeMobileNavbar: React.FC = () => {
                             transition={{ type: "spring", stiffness: 300 }}
                           >
                             <div className="flex items-center space-x-4">
-                              <span className="text-purple-400 text-sm font-mono">
+                              <span className="text-primrycolor-light text-sm font-mono">
                                 {item.id}
                               </span>
                               <div>
-                                <h3 className="text-white text-2xl font-bold group-hover:text-purple-300 transition-colors">
+                                <h3 className="text-white text-3xl uppercase font-bold group-hover:text-purple-300 transition-colors">
                                   {item.title}
                                 </h3>
                                 <p className="text-gray-400 text-sm">

@@ -40,11 +40,8 @@ html {
           {/* <SmoothScrollWrapper> */}
           <MouseTracker />
           <Navbar />
-
           {children}
-
           <Footer />
-
           {/* </SmoothScrollWrapper> */}
         </NextIntlClientProvider>
       </body>

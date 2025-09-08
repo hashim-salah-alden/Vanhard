@@ -10,6 +10,8 @@ const config = {
     extend: {
       backgroundImage: {
         pattern: "url('/images/dotted.svg')",
+        dots: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ffffff22'/%3E%3C/svg%3E\")",
+        grid: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
       },
       transitionDuration: {
         long: "1500ms", // 1.5 seconds

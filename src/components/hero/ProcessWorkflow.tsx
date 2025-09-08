@@ -105,7 +105,7 @@ const ProcessWorkflow = () => {
                 }}
                 className="group"
               >
-                <div className="bg-[#005c95] text-slate-200 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-500/30">
+                <div className="bg-gradient-to-r from-primrycolor-dark to-primrycolor-light text-slate-200 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-500/30">
                   <div className="flex flex-col sm:flex-row items-start gap-5 md:gap-6">
                     <div className="flex-shrink-0">
                       <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-md">

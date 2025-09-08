@@ -62,7 +62,7 @@ export default function FullScreenSlider() {
           gsap.to(thumb, {
             scale: i === index ? 1.05 : 1,
             opacity: i === index ? 1 : 0.7,
-            duration: 0.3,
+            duration: 1,
           });
         }
       });
@@ -120,7 +120,7 @@ export default function FullScreenSlider() {
           className="absolute inset-0 flex justify-center items-center md:items-center md:justify-start px-8 md:px-16 "
         >
           <div className=" space-y-6 text-center ">
-            <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight">
+            <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight">
               <div>YOUR CLOUD.</div>
               <div className="text-white">YOUR RULES.</div>
             </h1>
@@ -136,7 +136,28 @@ export default function FullScreenSlider() {
         </div>
 
         {/* Slide 2 content */}
+
         <div
+          ref={(el) => (slideRefs.current[1] = el)}
+          className="absolute inset-0 flex justify-center items-center md:items-center md:justify-start px-8 md:px-16 "
+        >
+          <div className=" space-y-6 text-center ">
+            <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight">
+              <div>SECURE HOSTING.</div>
+              <div className="text-white">UNLIMITED SCALE.</div>
+            </h1>
+            <div className="flex items-center space-x-4 text-sm text-slate-100">
+              <span>Enterprise Solutions</span>
+              <div className="w-px h-4 bg-gray-500"></div>
+              <span>Optimized</span>
+            </div>
+            <button className="mt-8 px-8 py-4 bg-primrycolor-light rounded-lg text-white font-semibold">
+             VIEW SOLUTIONS
+            </button>
+          </div>
+        </div>
+
+        {/* <div
           ref={(el) => (slideRefs.current[1] = el)}
           className="absolute inset-0 flex items-center justify-between px-8 md:px-16"
         >
@@ -156,25 +177,21 @@ export default function FullScreenSlider() {
               VIEW SOLUTIONS
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Thumbnails */}
       <div className="absolute bottom-0 left-0 right-0 flex gap-2">
         <div
           ref={(el) => (thumbnailRefs.current[0] = el)}
-          className={`flex-1 h-16 md:h-32 bg-cover bg-center cursor-pointer 
-      transition-transform duration-1000 ease-in-out 
-      ${currentSlide === 0 ? "opacity-100 scale-150" : "opacity-30 scale-100"}`}
+          className={`flex-1 h-16 md:h-32 bg-cover bg-center cursor-pointer`}
           style={{ backgroundImage: "url(/images/Hero-slider/slide1.jpg)" }}
           onClick={() => goToSlide(0)}
         ></div>
 
         <div
           ref={(el) => (thumbnailRefs.current[1] = el)}
-          className={`flex-1 h-16 md:h-32 bg-cover bg-center cursor-pointer 
-      transition-transform duration-1000 ease-in-out 
-      ${currentSlide === 1 ? "opacity-100 scale-150" : "opacity-30 scale-100"}`}
+          className={`flex-1 h-16 md:h-32 bg-cover bg-center cursor-pointer`}
           style={{ backgroundImage: "url(/images/Hero-slider/slide-3.jpg)" }}
           onClick={() => goToSlide(1)}
         ></div>
