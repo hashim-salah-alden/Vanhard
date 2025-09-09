@@ -12,6 +12,20 @@ const config = {
         pattern: "url('/images/dotted.svg')",
         dots: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ffffff22'/%3E%3C/svg%3E\")",
         grid: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
+        // Diagonal stripes
+        stripes:
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M0 10L10 0H0z' fill='%23ffffff22'/%3E%3C/svg%3E\")",
+        // Crosshatch
+        cross:
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M0 10h20M10 0v20' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
+        // Triangles
+        triangles:
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='17.3'%3E%3Cpath d='M0 17.3L10 0l10 17.3z' fill='%23ffffff11'/%3E%3C/svg%3E\")",
+        // Plus signs
+        plus: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M8 0h4v20H8zM0 8h20v4H0z' fill='%23ffffff22'/%3E%3C/svg%3E\")",
+        hex: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34.64' height='30'%3E%3Cpath d='M17.32 0l17.32 10v20l-17.32 10L0 30V10z' fill='none' stroke='%23ffffff22' stroke-width='1'/%3E%3C/svg%3E\")",
+        matrix:
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20'%3E%3Ctext x='0' y='15' font-size='14' fill='%23ffffff22' font-family='monospace'%3E0101%3C/text%3E%3C/svg%3E\")",
       },
       transitionDuration: {
         long: "1500ms", // 1.5 seconds

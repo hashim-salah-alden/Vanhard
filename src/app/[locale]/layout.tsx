@@ -6,6 +6,7 @@ import Navbar from "@/src/components/common/Navbar";
 import MouseTracker from "../../lib/MouseTracker";
 import { NextIntlClientProvider } from "next-intl";
 import Footer from "@/src/components/site-footer";
+import FloatingContact from "@/src/components/common/FloatingContact";
 
 export const metadata: Metadata = {
   title: "VanHard",
@@ -40,6 +41,7 @@ html {
           {/* <SmoothScrollWrapper> */}
           <MouseTracker />
           <Navbar />
+          <FloatingContact />
           {children}
           <Footer />
           {/* </SmoothScrollWrapper> */}

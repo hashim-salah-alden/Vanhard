@@ -166,8 +166,8 @@ export default function TechBackground({
         </div>
       )}
       {/* soft radial glows */}
-      <div className="absolute -left-24 -top-24 h-56 w-56 rounded-full bg-purple-500/20 blur-3xl" />
-      <div className="absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
+      <div className="absolute -left-24 -top-24 h-56 w-56 rounded-full  blur-3xl" />
+      <div className="absolute -right-24 -bottom-24 h-72 w-72 rounded-full  blur-3xl" />
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
     </div>
   )

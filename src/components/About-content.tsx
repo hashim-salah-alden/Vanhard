@@ -1,12 +1,13 @@
 "use client";
 
 import { Shield, Users, Target, Zap, Lock, Globe } from "lucide-react";
+import TechBackground from "./tech-background";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#171717]">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primrycolor-dark via-primrycolor-dark to-primrycolor-light text-white py-20">
+      <section className="relative  text-white py-20">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -14,7 +15,7 @@ export default function AboutPage() {
               <h1 className="text-5xl font-bold mb-6 leading-tight">
                 Building a Safer
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primrycolor-light to-blue-400">
                   Digital World
                 </span>
               </h1>
@@ -62,17 +63,25 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-50 to-indigo-50">
+      <section className="py-20 ">
+        <TechBackground
+          density={0.8}
+          opacity={0.65}
+          color="#005b95"
+          className="z-20"
+        />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primrycolor-light to-blue-400 mb-6">
                 Built for Privacy.
                 <br />
                 Backed by Expertise.
                 <br />
-                <span className="text-purple-600">Enhanced by Innovation.</span>
+                <span className="text-pri">Enhanced by Innovation.</span>
               </h2>
+              <div className="w-20 h-1 bg-blue-500  mb-4 rounded-full"></div>
+
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Founded in 2024, VANHARD LLC specializes in delivering fully
                 installed, production-ready systems that our clients own and
@@ -112,10 +121,14 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gradient-to-br from-primrycolor-dark via-primrycolor-dark to-primrycolor-light text-white">
+      <section className="py-20  text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Core Values</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Our <span className="text-primrycolor-light">Core</span> Values
+            </h2>
+            <div className="w-20 h-1 mb-4 bg-blue-500 mx-auto rounded-full"></div>
+
             <p className="text-xl text-purple-200">
               Guiding principles that drive everything we do
             </p>
@@ -192,10 +205,10 @@ export default function AboutPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primrycolor-light to-blue-400 mb-4">
               Our Services
             </h2>
             <p className="text-xl text-gray-600">
@@ -287,7 +300,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white">
+      <section className="py-20 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-10 border border-white/20">
@@ -318,7 +331,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Ready to Take Control of Your Digital Infrastructure?

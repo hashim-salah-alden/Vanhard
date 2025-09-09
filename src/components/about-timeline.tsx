@@ -29,11 +29,11 @@ const milestones = [
 
 export default function AboutTimeline() {
   return (
-    <section className="relative py-20">
+    <section className="relative py-20 bg-[#171717]">
       <TechBackground
         density={0.6}
-        opacity={0.35}
-        color="rgba(124,58,237,0.55)"
+        opacity={0.55}
+        color="#005b95"
       />
       <div className="mx-auto max-w-5xl px-4 md:px-6">
         <div className="mx-auto max-w-2xl text-center">
