@@ -22,64 +22,64 @@ const Footer = () => {
   const columnsRef = useRef<HTMLDivElement[]>([]);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate logo with rotation and scale
-      gsap.fromTo(
-        logoRef.current,
-        { opacity: 0, scale: 0.5, rotation: -180 },
-        {
-          opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 1.2,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     // Animate logo with rotation and scale
+  //     gsap.fromTo(
+  //       logoRef.current,
+  //       { opacity: 0, scale: 0.5, rotation: -180 },
+  //       {
+  //         opacity: 1,
+  //         scale: 1,
+  //         rotation: 0,
+  //         duration: 1.2,
+  //         ease: "back.out(1.7)",
+  //         scrollTrigger: {
+  //           trigger: footerRef.current,
+  //           start: "top 90%",
+  //           toggleActions: "play none none reverse",
+  //         },
+  //       }
+  //     );
 
-      // Animate columns with stagger
-      gsap.fromTo(
-        columnsRef.current,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+  //     // Animate columns with stagger
+  //     gsap.fromTo(
+  //       columnsRef.current,
+  //       { opacity: 0, y: 30 },
+  //       {
+  //         opacity: 1,
+  //         y: 0,
+  //         duration: 0.8,
+  //         stagger: 0.2,
+  //         ease: "power3.out",
+  //         scrollTrigger: {
+  //           trigger: footerRef.current,
+  //           start: "top 85%",
+  //           toggleActions: "play none none reverse",
+  //         },
+  //       }
+  //     );
 
-      // Animate bottom section
-      gsap.fromTo(
-        bottomRef.current,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          delay: 0.8,
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
+  //     // Animate bottom section
+  //     gsap.fromTo(
+  //       bottomRef.current,
+  //       { opacity: 0, y: 20 },
+  //       {
+  //         opacity: 1,
+  //         y: 0,
+  //         duration: 0.6,
+  //         delay: 0.8,
+  //         scrollTrigger: {
+  //           trigger: footerRef.current,
+  //           start: "top 85%",
+  //           toggleActions: "play none none reverse",
+  //         },
+  //       }
+  //     );
+  //   });
 
-    return () => ctx.revert();
-  }, []);
+  //   return () => ctx.revert();
+  // }, []);
 
   const contactInfo = [
     { icon: Mail, label: "Email", value: "contact@vanhard.com" },
@@ -108,7 +108,7 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="bg-gradient-to-br from-primrycolor-dark via-primrycolor-dark to-primrycolor-light text-slate-200 overflow-hidden relative"
+      className="bg-[#171717] text-slate-200 overflow-hidden relative"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10">

@@ -89,14 +89,8 @@ const ProcessWorkflow = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-8 md:py-24 bg-[#171717] relative  border-t-4 border-primrycolor-light "
+      className="py-8 md:py-24 bg-[#171717] bg-dots relative  border-t-4 border-primrycolor-light "
     >
-      <TechBackground
-        density={0.8}
-        opacity={0.65}
-        color="#005b95"
-        className="z-20"
-      />
       <div className=" mx-auto px-4 sm:px-6">
         <div ref={containerRef} className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
