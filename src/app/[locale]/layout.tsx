@@ -7,7 +7,7 @@ import MouseTracker from "../../lib/MouseTracker";
 import { NextIntlClientProvider } from "next-intl";
 import Footer from "@/src/components/site-footer";
 import FloatingContact from "@/src/components/common/FloatingContact";
-
+import LoadingIntro from "@/src/components/feedback/LoadingIntro";
 export const metadata: Metadata = {
   title: "VanHard",
   description: "Created by Hashim",
@@ -39,6 +39,7 @@ html {
       <body className="font-antonio scroll-smooth">
         <NextIntlClientProvider>
           {/* <SmoothScrollWrapper> */}
+          {/* <LoadingIntro /> */}
           <MouseTracker />
           <Navbar />
           <FloatingContact />

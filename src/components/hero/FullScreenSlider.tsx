@@ -117,7 +117,7 @@ export default function FullScreenSlider() {
         {/* Slide 1 content */}
         <div
           ref={(el) => (slideRefs.current[0] = el)}
-          className="absolute inset-0 flex justify-center items-center md:items-center md:justify-start px-8 md:px-16 "
+          className="absolute opacity-0 pointer-events-none inset-0 flex justify-center items-center md:items-center md:justify-start px-8 md:px-16 "
         >
           <div className=" space-y-6 text-center ">
             <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight">
@@ -139,7 +139,7 @@ export default function FullScreenSlider() {
 
         <div
           ref={(el) => (slideRefs.current[1] = el)}
-          className="absolute inset-0 flex justify-center items-center md:items-center md:justify-start px-8 md:px-16 "
+          className="absolute inset-0 opacity-0 pointer-events-none flex justify-center items-center md:items-center md:justify-start px-8 md:px-16 "
         >
           <div className=" space-y-6 text-center ">
             <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight">
@@ -152,7 +152,7 @@ export default function FullScreenSlider() {
               <span>Optimized</span>
             </div>
             <button className="mt-8 px-8 py-4 bg-primrycolor-light rounded-lg text-white font-semibold">
-             VIEW SOLUTIONS
+              VIEW SOLUTIONS
             </button>
           </div>
         </div>

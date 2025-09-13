@@ -20,6 +20,7 @@ import {
   Globe,
 } from "lucide-react";
 import Link from "next/link";
+import TechBackground from "@/src/components/tech-background";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -301,33 +302,17 @@ export default function PricingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white overflow-hidden">
-      {/* Animated Background */}
-      <div ref={particlesRef} className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-purple-950/20 to-cyan-950/20" />
-        {[...Array(25)].map((_, i) => (
-          <div
-            key={i}
-            className="particle absolute w-1 h-1 bg-blue-400/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
-
+    <div className="min-h-screen bg-[#171717] text-white overflow-hidden">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative py-24 px-4">
+      <section ref={heroRef} className="relative pt-24 pb-14 px-4">
+        <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="pricing-hero-title text-6xl md:text-8xl font-black mb-8">
+          <h1 className="pricing-hero-title text-6xl md:text-7xl font-black mb-8">
             <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
               Transparent
             </span>
-            <br />
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Pricing
-            </span>
+            <br/>
+            <span className="bg-gradient-to-r from-primrycolor-light via-primrycolor-light to-primrycolor-dark bg-clip-text text-transparent">Pricing</span>
           </h1>
           <p className="pricing-hero-subtitle text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-16 leading-relaxed">
             One-time installations. No monthly fees.
@@ -379,6 +364,12 @@ export default function PricingPage() {
 
       {/* Pricing Content */}
       <section ref={pricingRef} className="py-24 px-4">
+        <TechBackground
+          density={0.8}
+          opacity={0.65}
+          color="#005b95"
+          className="z-20"
+        />
         <div className="max-w-7xl mx-auto">
           {!showIndividual ? (
             /* Package Pricing */

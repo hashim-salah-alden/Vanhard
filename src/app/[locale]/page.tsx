@@ -24,6 +24,7 @@ import {
   SiTypescript,
   SiTailwindcss,
 } from "react-icons/si";
+import LoadingIntro from "@/src/components/feedback/LoadingIntro";
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,7 +49,8 @@ export default function Page() {
     setIsLoading(false);
   };
   return (
-    <section className="  text-gray-900">
+    <section className="  ">
+      <LoadingIntro />
       <FullScreenSlider />
       <PinnedSlider />
       <ControlFreedomSection />
