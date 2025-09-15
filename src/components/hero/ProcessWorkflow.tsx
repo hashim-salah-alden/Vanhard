@@ -87,7 +87,7 @@ const ProcessWorkflow = () => {
       // Title animation
       gsap.fromTo(
         titleRef.current,
-        {  y: 50, scale: 0.9 },
+        { y: 50, scale: 0.9 },
         {
           opacity: 1,
           y: 0,
@@ -207,15 +207,13 @@ const ProcessWorkflow = () => {
                       } flex flex-col lg:flex lg:items-center lg:gap-16`}
                     >
                       {/* Step Content */}
-                      <div
-                        className={`flex-1 `}
-                      >
+                      <div className={`flex-1 `}>
                         <div
-                          className={`relative rounded-lg bg-blur  backdrop-blur-lg p-8  border-gray-700/50 shadow-xl shadow-blue-500/5  border ${step.borderColor} rounded-lg p-8 shadow-2xl ${step.glowColor} hover:shadow-3xl transition-all duration-500 group-hover:scale-105 group-hover:border`}
+                          className={`relative  bg-blur  backdrop-blur-lg p-8  border-gray-700/50  shadow-blue-500/5  border  rounded-lg shadow-md ${step.glowColor} hover:shadow-3xl transition-all duration-500 group-hover:scale-105 group-hover:border`}
                         >
                           {/* Glow effect */}
                           <div
-                            className={`absolute inset-0 bg-gradient-to-br bg-primrycolor-dark   rounded-2xl `}
+                            className={`absolute inset-0 bg-gradient-to-br from-primrycolor-dark to-primrycolor-dark   rounded-2xl `}
                           ></div>
 
                           <div className="relative z-10">

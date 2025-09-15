@@ -307,16 +307,16 @@ export default function PricingPage() {
       <section ref={heroRef} className="relative pt-24 pb-14 px-4">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="pricing-hero-title text-6xl md:text-7xl font-black mb-8">
+          <h2 className="pricing-hero-title text-6xl md:text-7xl font-black mb-8">
             <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
               Transparent
             </span>
-            <br/>
-            <span className="bg-gradient-to-r from-primrycolor-light via-primrycolor-light to-primrycolor-dark bg-clip-text text-transparent">Pricing</span>
-          </h1>
-          <p className="pricing-hero-subtitle text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-16 leading-relaxed">
+      
+            <span className="text-slate-200"> Pricing</span>
+          </h2>
+          <p className="pricing-hero-subtitle text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto mb-16 leading-relaxed">
             One-time installations. No monthly fees.
-            <span className="text-blue-400 font-semibold">
+            <span className="text-primrycolor-light font-semibold">
               {" "}
               Own your infrastructure forever.
             </span>
@@ -335,7 +335,7 @@ export default function PricingPage() {
               onClick={() => setShowIndividual(!showIndividual)}
               className={`relative w-20 h-10 rounded-full transition-all duration-300 shadow-lg ${
                 showIndividual
-                  ? "bg-gradient-to-r from-blue-500 to-purple-500 shadow-blue-500/25"
+                  ? "bg-gradient-to-r from-primrycolor-light to-primrycolor-dark shadow-blue-500/25"
                   : "bg-gray-700 shadow-gray-700/25"
               }`}
             >
@@ -347,7 +347,7 @@ export default function PricingPage() {
                 {showIndividual ? (
                   <Package className="w-4 h-4 text-blue-600" />
                 ) : (
-                  <Sparkles className="w-4 h-4 text-purple-600" />
+                  <Sparkles className="w-4 h-4 text-primrycolor-light" />
                 )}
               </div>
             </button>
