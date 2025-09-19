@@ -11,6 +11,10 @@ import {
   User,
   MessageSquare,
   Building,
+  CheckCircle,
+  Shield,
+  Zap,
+  Award,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,6 +24,7 @@ const Contact = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const contactCardsRef = useRef<HTMLDivElement[]>([]);
   const mapRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement[]>([]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,6 +32,7 @@ const Contact = () => {
     message: "",
     service: "general",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const contactInfo = [
     {
@@ -34,39 +40,63 @@ const Contact = () => {
       title: "Email Us",
       primary: "contact@vanhard.com",
       secondary: "Response within 24 hours",
-      color: "from-primary to-primary-dark",
+      color: "from-blue-500 to-blue-600",
+      hoverColor: "hover:from-blue-600 hover:to-blue-700",
     },
     {
       icon: Phone,
       title: "Call Us",
       primary: "+1 (555) 123-4567",
       secondary: "Mon-Fri, 9 AM - 6 PM EST",
-      color: "from-primary-light to-primary",
+      color: "from-green-500 to-green-600",
+      hoverColor: "hover:from-green-600 hover:to-green-700",
     },
     {
       icon: MapPin,
       title: "Visit Us",
       primary: "Secure Infrastructure HQ",
       secondary: "Professional consultations available",
-      color: "from-accent to-primary-light",
+      color: "from-purple-500 to-purple-600",
+      hoverColor: "hover:from-purple-600 hover:to-purple-700",
     },
     {
       icon: Clock,
       title: "Support Hours",
       primary: "24/7 Emergency Support",
       secondary: "Critical infrastructure support",
-      color: "from-primary-dark to-accent",
+      color: "from-orange-500 to-orange-600",
+      hoverColor: "hover:from-orange-600 hover:to-orange-700",
+    },
+  ];
+
+  const features = [
+    {
+      icon: Shield,
+      title: "No Hidden Costs",
+      desc: "Transparent pricing with no subscriptions or surprise charges. What you see is what you pay.",
+    },
+    {
+      icon: Zap,
+      title: "Your Environment",
+      desc: "All systems installed in your infrastructure with full control and ownership.",
+    },
+    {
+      icon: Award,
+      title: "Expert Documentation",
+      desc: "Comprehensive technical documentation and complete knowledge transfer.",
     },
   ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Hero animation
       gsap.fromTo(
         heroRef.current,
         { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
       );
 
+      // Contact cards animation
       gsap.fromTo(
         contactCardsRef.current,
         { opacity: 0, y: 30, scale: 0.9 },
@@ -85,6 +115,7 @@ const Contact = () => {
         }
       );
 
+      // Form animation
       gsap.fromTo(
         formRef.current,
         { opacity: 0, x: -50 },
@@ -101,6 +132,25 @@ const Contact = () => {
         }
       );
 
+      // Features animation
+      gsap.fromTo(
+        featuresRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: featuresRef.current[0],
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Info section animation
       gsap.fromTo(
         mapRef.current,
         { opacity: 0, x: 50, scale: 0.95 },
@@ -133,8 +183,9 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const submitBtn = e.currentTarget.querySelector('button[type="submit"]');
     gsap.to(submitBtn, {
@@ -145,6 +196,9 @@ const Contact = () => {
       ease: "power2.out",
     });
 
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     alert("Message Sent Successfully! We'll get back to you within 24 hours.");
 
     setFormData({
@@ -154,21 +208,23 @@ const Contact = () => {
       message: "",
       service: "general",
     });
+    setIsSubmitting(false);
   };
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gray-900">
+      ``
       {/* Hero Section */}
-      <section className="py-24  bg-gradient-hero text-primary-foreground relative overflow-hidden">
+      <section className="py-24 bg-gradient-hero text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-40 h-40 border border-primary-foreground/20 rounded-full"></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 border border-primary-foreground/20 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-primary-foreground/10 rounded-full"></div>
+          <div className="absolute top-20 left-20 w-40 h-40 border border-white/20 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-32 h-32 border border-white/20 rounded-full animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/10 rounded-full animate-pulse delay-500"></div>
         </div>
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <div ref={heroRef}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
               Get In Touch
             </h1>
             <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto mb-8">
@@ -176,14 +232,13 @@ const Contact = () => {
               requirements and create a tailored solution.
             </p>
             <div className="flex items-center justify-center gap-4">
-              <div className="w-16 h-px bg-primary-foreground/40"></div>
+              <div className="w-16 h-px bg-white/40"></div>
               <MessageSquare className="w-8 h-8" />
-              <div className="w-16 h-px bg-primary-foreground/40"></div>
+              <div className="w-16 h-px bg-white/40"></div>
             </div>
           </div>
         </div>
       </section>
-
       {/* Contact Cards */}
       <section className="py-16 bg-gradient-secondary">
         <div className="container mx-auto px-6">
@@ -196,23 +251,21 @@ const Contact = () => {
                   ref={(el) => {
                     if (el) contactCardsRef.current[index] = el;
                   }}
-                  className="group bg-white rounded-xl border border-border/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
+                  className="group glass-effect rounded-xl card-hover"
                 >
                   <div className="p-8 text-center">
                     <div
-                      className={`w-16 h-16 bg-gradient-to-br ${info.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md`}
+                      className={`w-16 h-16 bg-gradient-to-br ${info.color} ${info.hoverColor} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg`}
                     >
-                      <IconComponent className="w-8 h-8 text-primary-foreground" />
+                      <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                    <h3 className="text-xl font-semibold text-gray-100 mb-2">
                       {info.title}
                     </h3>
-                    <p className="text-foreground font-medium mb-1">
+                    <p className="text-gray-100 font-medium mb-1">
                       {info.primary}
                     </p>
-                    <p className="text-muted-foreground text-sm">
-                      {info.secondary}
-                    </p>
+                    <p className="text-gray-400 text-sm">{info.secondary}</p>
                   </div>
                 </div>
               );
@@ -220,18 +273,17 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      {/* Contact Form & Map Section */}
-      <section className="py-24 bg-background">
+      {/* Contact Form & Info Section */}
+      <section className="py-24 bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
             {/* Contact Form */}
             <div ref={formRef}>
               <div className="mb-8">
-                <h2 className="text-4xl font-bold text-foreground mb-4">
+                <h2 className="text-4xl font-bold text-gradient mb-4">
                   Start Your Project
                 </h2>
-                <p className="text-xl text-muted-foreground">
+                <p className="text-xl text-gray-400">
                   Tell us about your infrastructure needs and we'll create a
                   custom solution for you.
                 </p>
@@ -242,7 +294,7 @@ const Contact = () => {
                   <div className="space-y-2">
                     <label
                       htmlFor="name"
-                      className="flex items-center gap-2 text-sm font-medium"
+                      className="flex items-center gap-2 text-sm font-medium text-gray-300"
                     >
                       <User className="w-4 h-4" />
                       Full Name
@@ -254,14 +306,14 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="John Doe"
                       required
-                      className="h-12 w-full rounded-md border px-3 focus:ring-2 focus:ring-primary/20 outline-none"
+                      className="h-12 w-full px-3 rounded-md border border-gray-600 bg-gray-800 text-gray-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-colors"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label
                       htmlFor="email"
-                      className="flex items-center gap-2 text-sm font-medium"
+                      className="flex items-center gap-2 text-sm font-medium text-gray-300"
                     >
                       <Mail className="w-4 h-4" />
                       Email Address
@@ -274,7 +326,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="john@company.com"
                       required
-                      className="h-12 w-full rounded-md border px-3 focus:ring-2 focus:ring-primary/20 outline-none"
+                      className="h-12 w-full px-3 rounded-md border border-gray-600 bg-gray-800 text-gray-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -282,7 +334,7 @@ const Contact = () => {
                 <div className="space-y-2">
                   <label
                     htmlFor="company"
-                    className="flex items-center gap-2 text-sm font-medium"
+                    className="flex items-center gap-2 text-sm font-medium text-gray-300"
                   >
                     <Building className="w-4 h-4" />
                     Company (Optional)
@@ -293,14 +345,14 @@ const Contact = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="Your Company Name"
-                    className="h-12 w-full rounded-md border px-3 focus:ring-2 focus:ring-primary/20 outline-none"
+                    className="h-12 w-full px-3 rounded-md border border-gray-600 bg-gray-800 text-gray-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-colors"
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label
                     htmlFor="service"
-                    className="text-sm font-medium text-foreground"
+                    className="text-sm font-medium text-gray-300"
                   >
                     Service Interest
                   </label>
@@ -309,7 +361,7 @@ const Contact = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full h-12 px-3 rounded-md border bg-background text-foreground focus:ring-2 focus:ring-primary/20 outline-none"
+                    className="w-full h-12 px-3 rounded-md border border-gray-600 bg-gray-800 text-gray-100 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-colors"
                   >
                     <option value="general">General Inquiry</option>
                     <option value="infrastructure">Infrastructure Setup</option>
@@ -324,7 +376,7 @@ const Contact = () => {
                 <div className="space-y-2">
                   <label
                     htmlFor="message"
-                    className="flex items-center gap-2 text-sm font-medium"
+                    className="flex items-center gap-2 text-sm font-medium text-gray-300"
                   >
                     <MessageSquare className="w-4 h-4" />
                     Project Details
@@ -337,16 +389,26 @@ const Contact = () => {
                     placeholder="Tell us about your infrastructure requirements..."
                     rows={6}
                     required
-                    className="w-full rounded-md border p-3 resize-none focus:ring-2 focus:ring-primary/20 outline-none"
+                    className="w-full p-3 rounded-md border border-gray-600 bg-gray-800 text-gray-100 resize-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-colors"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full h-14 text-lg font-semibold rounded-md bg-gradient-to-r from-primary to-primary-dark text-white hover:opacity-90 transition-all duration-300"
+                  disabled={isSubmitting}
+                  className="w-full h-14 text-lg font-semibold bg-gradient-primary hover:opacity-90 transition-all duration-300 rounded-md text-white disabled:opacity-50"
                 >
-                  <Send className="w-5 h-5 inline mr-2" />
-                  Send Message
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      Sending...
+                    </div>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 inline mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>
@@ -354,69 +416,64 @@ const Contact = () => {
             {/* Info Section */}
             <div ref={mapRef}>
               <div className="mb-8">
-                <h2 className="text-4xl font-bold text-foreground mb-4">
+                <h2 className="text-4xl font-bold text-gradient mb-4">
                   Why Choose VANHARD?
                 </h2>
-                <p className="text-xl text-muted-foreground mb-6">
+                <p className="text-xl text-gray-400 mb-6">
                   Professional infrastructure services with complete
                   transparency and client control.
                 </p>
               </div>
 
-              {/* Info Cards */}
+              {/* Feature Cards */}
               <div className="space-y-6">
-                {[
-                  {
-                    title: "No Hidden Costs",
-                    desc: "Transparent pricing with no subscriptions or surprise charges.",
-                  },
-                  {
-                    title: "Your Environment",
-                    desc: "All systems installed in your infrastructure with full control.",
-                  },
-                  {
-                    title: "Expert Documentation",
-                    desc: "Comprehensive technical documentation and handoff.",
-                  },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="rounded-xl border p-6 hover:shadow-lg transition-all"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center text-white font-bold">
-                        {i + 1}
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold text-foreground mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-muted-foreground">{item.desc}</p>
+                {features.map((feature, i) => {
+                  const IconComponent = feature.icon;
+                  return (
+                    <div
+                      key={i}
+                      ref={(el) => {
+                        if (el) featuresRef.current[i] = el;
+                      }}
+                      className="glass-effect rounded-xl p-6 card-hover"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center text-white shadow-lg">
+                          <IconComponent className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-100 mb-2">
+                            {feature.title}
+                          </h3>
+                          <p className="text-gray-400">{feature.desc}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
-              {/* CTA */}
-              <div className="mt-8 p-8 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl border border-primary/20">
-                <h3 className="text-2xl font-bold text-foreground mb-4">
+              {/* CTA Card */}
+              <div className="mt-8 p-8 glass-effect rounded-2xl border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-purple-500/5">
+                <h3 className="text-2xl font-bold text-gray-100 mb-4">
                   Ready to Get Started?
                 </h3>
-                <p className="text-muted-foreground mb-6">
-                  Join the growing number of organizations that trust VANHARD.
+                <p className="text-gray-400 mb-6">
+                  Join the growing number of organizations that trust VANHARD
+                  for their infrastructure needs.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-2">
-                    <div className="w-10 h-10 bg-gradient-primary rounded-full border-2 border-background"></div>
-                    <div className="w-10 h-10 bg-gradient-to-br from-accent to-primary-light rounded-full border-2 border-background"></div>
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary-dark to-accent rounded-full border-2 border-background"></div>
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full border-2 border-gray-900"></div>
+                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full border-2 border-gray-900"></div>
+                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full border-2 border-gray-900"></div>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">
+                    <p className="text-sm font-mediumtext-gray-100 flex items-center gap-1">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
                       50+ Happy Clients
                     </p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs text-gray-400">
                       Secured infrastructure worldwide
                     </p>
                   </div>

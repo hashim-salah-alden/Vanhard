@@ -13,6 +13,8 @@ import {
   Server,
   Lock,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -128,12 +130,18 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <div ref={logoRef} className="mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary-foreground/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-primary-foreground/20">
-                  <Shield className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <h3 className="text-2xl font-bold">VANHARD</h3>
-              </div>
+              <Link
+                href="/"
+                className="flex items-center justify-center md:justify-start gap-3 mb-4 "
+              >
+                <Image src="/footer-logo.png" alt={""} width={75} height={50} />
+                <Image
+                  src="/footer-text.png"
+                  alt={""}
+                  width={175}
+                  height={50}
+                />
+              </Link>
               <p className="text-primary-foreground/80 leading-relaxed">
                 Professional system installation and security services with
                 complete client control and transparency.

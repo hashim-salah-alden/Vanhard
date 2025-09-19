@@ -42,7 +42,7 @@ const ProcessWorkflow = () => {
       description:
         "VANHARD installs and configures the services with precision and expertise",
       icon: Settings,
-      color: "from-purple-500 to-pink-500",
+      color: "from-blue-500 to-cyan-500",
       bgGradient: "from-purple-500/10 to-pink-500/10",
       borderColor: "border-purple-500/30",
       glowColor: "shadow-purple-500/20",
@@ -53,7 +53,7 @@ const ProcessWorkflow = () => {
       description:
         "Systems are hardened, secured, documented, and thoroughly tested",
       icon: Shield,
-      color: "from-emerald-500 to-teal-500",
+      color: "from-blue-500 to-cyan-500",
       bgGradient: "from-emerald-500/10 to-teal-500/10",
       borderColor: "border-emerald-500/30",
       glowColor: "shadow-emerald-500/20",
@@ -64,7 +64,7 @@ const ProcessWorkflow = () => {
       description:
         "Complete credentials and comprehensive documentation delivered securely",
       icon: FileText,
-      color: "from-orange-500 to-red-500",
+      color: "from-blue-500 to-cyan-500",
       bgGradient: "from-orange-500/10 to-red-500/10",
       borderColor: "border-orange-500/30",
       glowColor: "shadow-orange-500/20",
@@ -75,7 +75,7 @@ const ProcessWorkflow = () => {
       description:
         "Two revisions included with ongoing support and maintenance",
       icon: HeadphonesIcon,
-      color: "from-indigo-500 to-purple-500",
+      color: "from-blue-500 to-cyan-500",
       bgGradient: "from-indigo-500/10 to-purple-500/10",
       borderColor: "border-indigo-500/30",
       glowColor: "shadow-indigo-500/20",
@@ -213,7 +213,7 @@ const ProcessWorkflow = () => {
                         >
                           {/* Glow effect */}
                           <div
-                            className={`absolute inset-0 bg-gradient-to-br from-primrycolor-dark to-primrycolor-dark   rounded-2xl `}
+                            className={`absolute inset-0 bg-gradient-to-br bg-[#171717] rounded-2xl `}
                           ></div>
 
                           <div className="relative z-10">
@@ -238,7 +238,7 @@ const ProcessWorkflow = () => {
                               {step.title}
                             </h3>
 
-                            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                            <p className="text-slate-200 text-lg leading-relaxed mb-6">
                               {step.description}
                             </p>
 

@@ -183,7 +183,7 @@ export default function VanhardSection() {
   }, []);
 
   return (
-    <div className="bg-[#171717] ">
+    <div className="bg-[#171717] font-almarai">
       <TechBackground
         density={0.8}
         opacity={0.65}
@@ -206,15 +206,15 @@ export default function VanhardSection() {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-primrycolor-light rounded-lg mb-8 floating-icon shadow-2xl shadow-blue-500/25">
               <Server className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold bg-primrycolor-light bg-clip-text text-transparent mb-6">
+            <h2 className="text-5xl font-antonio md:text-6xl font-bold bg-primrycolor-light bg-clip-text text-transparent mb-6">
               VANHARD LLC
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto leading-relaxed mb-8">
+            </h2>
+            <p className="text-2xl  md:text-[22px] text-slate-200 max-w-4xl mx-auto leading-relaxed mb-8">
               Specialist provider of self-hosted digital infrastructure
               installation services. Founded in 2024, we serve clients who seek
               privacy-first, scalable, and vendor-independent solutions.
             </p>
-            <div className="inline-block px-6 py-3 bg-primrycolor-light backdrop-blur-sm rounded-lg  shadow-lg">
+            <div className="inline-block font-bold text-lg px-6 py-3 bg-primrycolor-light backdrop-blur-sm rounded-lg  shadow-lg">
               <span className="text-sm font-medium text-slate-200">
                 Est. 2024 • Privacy-First Solutions
               </span>
@@ -222,8 +222,8 @@ export default function VanhardSection() {
           </div>
           {/* Core Values */}
           <div ref={valuesRef} className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
-              Our <span className="text-primrycolor-light text-5xl">Core</span>{" "}
+            <h2 className="text-3xl font-antonio md:text-7xl  font-bold text-center text-white mb-12">
+              Our <span className="text-primrycolor-light text-6xl">Core</span>{" "}
               Values
             </h2>
 
@@ -232,13 +232,13 @@ export default function VanhardSection() {
                 const IconComponent = value.icon;
                 return (
                   <div key={index} className="value-card group">
-                    <div className="bg-primrycolor-light/20  bg-blur backdrop-blur-lg rounded-lg p-6 text-center hover:bg-gray-800/90 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2 border border-gray-700/50">
+                    <div className="bg-primrycolor-light/20 h-44  bg-blur backdrop-blur-lg rounded-lg p-6 text-center hover:bg-gray-800/90 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2 border border-gray-700/50">
                       <div
                         className={`inline-flex items-center justify-center w-16 h-16 rounded-xl mb-4 text-primrycolor-light bg-slate-200 shadow-lg group-hover:scale-110 transition-transform duration-300`}
                       >
                         <IconComponent className="w-8 h-8" />
                       </div>
-                      <h3 className="font-semibold text-white text-sm leading-tight">
+                      <h3 className="font-semibold font-antonio text-lg  text-white  leading-tight">
                         {value.title}
                       </h3>
                     </div>
@@ -282,12 +282,12 @@ export default function VanhardSection() {
 
           {/* Service Catalog */}
           <div ref={servicesRef}>
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">
+            <h2 className="text-3xl md:text-7xl font-antonio font-bold text-center text-white mb-4">
               Service Catalog
             </h2>
             <div className="w-20 h-1 my-3 bg-blue-500 mx-auto rounded-full"></div>
 
-            <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-lg text-gray-400 mb-12  mx-auto">
               Comprehensive digital infrastructure solutions designed for
               privacy, performance, and complete ownership.
             </p>
@@ -305,11 +305,11 @@ export default function VanhardSection() {
                           <IconComponent className="w-8 h-8 text-white " />
                         </div>
 
-                        <h3 className="text-xl font-bold text-gray-200 mb-4 group-hover:text-slate-200 transition-colors duration-300">
+                        <h3 className="text-2xl font-antonio font-bold text-gray-200 mb-4 group-hover:text-slate-200 transition-colors duration-300">
                           {service.title}
                         </h3>
 
-                        <p className="text-gray-200 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
+                        <p className="text-gray-200 leading-relaxed  group-hover:text-slate-200 transition-colors duration-300">
                           {service.description}
                         </p>
                       </div>
@@ -325,10 +325,10 @@ export default function VanhardSection() {
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl shadow-blue-500/25">
               <div className="absolute inset-0 bg-gradient-to-r from-primrycolor-dark to-primrycolor-light"></div>
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4">
+                <h3 className="text-4xl font-antonio font-bold mb-4">
                   Ready to Own Your Digital Infrastructure?
                 </h3>
-                <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl font-antonio text-blue-100 mb-8  mx-auto">
                   Take control of your digital environment with our
                   privacy-first, vendor-independent solutions.
                 </p>

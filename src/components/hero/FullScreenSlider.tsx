@@ -120,7 +120,7 @@ export default function FullScreenSlider() {
           className="absolute opacity-0 pointer-events-none inset-0 flex justify-center items-center md:items-center md:justify-start px-8 md:px-16 "
         >
           <div className=" space-y-6 text-center ">
-            <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight">
+            <h1 className="text-5xl  md:text-8xl font-bold text-white leading-tight">
               <div>YOUR CLOUD.</div>
               <div className="text-white">YOUR RULES.</div>
             </h1>

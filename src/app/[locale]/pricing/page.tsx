@@ -84,7 +84,7 @@ const packages = [
       "Documentation included",
     ],
     popular: false,
-    color: "from-blue-500 to-cyan-400",
+    color: "bg-gradient-to-br from-blue-500 to-cyan-500",
     savings: 850,
   },
   {
@@ -100,7 +100,7 @@ const packages = [
       "Browser-based connectivity",
       "Team management tools",
     ],
-    popular: false,
+    popular: true,
     color: "from-emerald-500 to-teal-400",
     savings: 500,
   },
@@ -123,7 +123,7 @@ const packages = [
       "Secure remote access",
       "Advanced security policies",
     ],
-    popular: true,
+    popular: false,
     color: "from-purple-500 to-pink-400",
     savings: 1350,
   },
@@ -307,16 +307,16 @@ export default function PricingPage() {
       <section ref={heroRef} className="relative pt-24 pb-14 px-4">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto text-center">
-          <h2 className="pricing-hero-title text-6xl md:text-7xl font-black mb-8">
+          <h2 className="pricing-hero-title text-4xl md:text-7xl font-black mb-8">
             <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
               Transparent
             </span>
-      
+
             <span className="text-slate-200"> Pricing</span>
           </h2>
-          <p className="pricing-hero-subtitle text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto mb-16 leading-relaxed">
+          <p className="pricing-hero-subtitle  md:text-2xl text-slate-200 max-w-4xl mx-auto mb-16 leading-relaxed">
             One-time installations. No monthly fees.
-            <span className="text-primrycolor-light font-semibold">
+            <span className="md:text-primrycolor-light  font-semibold">
               {" "}
               Own your infrastructure forever.
             </span>
@@ -325,7 +325,7 @@ export default function PricingPage() {
           {/* Enhanced Pricing Toggle */}
           <div className="pricing-toggle flex items-center justify-center gap-6 mb-16">
             <span
-              className={`text-lg font-semibold transition-all duration-300 ${
+              className={`md:text-lg font-semibold transition-all duration-300 ${
                 !showIndividual ? "text-white scale-110" : "text-gray-400"
               }`}
             >
@@ -333,21 +333,21 @@ export default function PricingPage() {
             </span>
             <button
               onClick={() => setShowIndividual(!showIndividual)}
-              className={`relative w-20 h-10 rounded-full transition-all duration-300 shadow-lg ${
+              className={`relative w-14 h-6 md:w-20 md:h-10 rounded-full transition-all duration-300 shadow-lg ${
                 showIndividual
                   ? "bg-gradient-to-r from-primrycolor-light to-primrycolor-dark shadow-blue-500/25"
                   : "bg-gray-700 shadow-gray-700/25"
               }`}
             >
               <div
-                className={`absolute top-1 w-8 h-8 bg-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
+                className={`absolute top-1 w-4 h-4 md:w-8 md:h-8 bg-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
                   showIndividual ? "translate-x-11" : "translate-x-1"
                 }`}
               >
                 {showIndividual ? (
-                  <Package className="w-4 h-4 text-blue-600" />
+                  <Package className="w-3 h-3 md:w-4 md:h-4 text-blue-600" />
                 ) : (
-                  <Sparkles className="w-4 h-4 text-primrycolor-light" />
+                  <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-primrycolor-light" />
                 )}
               </div>
             </button>
@@ -379,14 +379,14 @@ export default function PricingPage() {
                   key={index}
                   className={`pricing-card relative bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border transition-all duration-500 group overflow-hidden ${
                     pkg.popular
-                      ? "border-purple-500/50 scale-105 shadow-2xl shadow-purple-500/10"
+                      ? "border-primrycolor-light scale-105 shadow-2xl shadow-purple-500/10"
                       : "border-gray-800 hover:border-gray-600"
                   }`}
                 >
                   {/* Popular Badge */}
                   {pkg.popular && (
-                    <div className="popular-badge absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
+                    <div className="popular-badge absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
+                      <div className="bg-gradient-to-r from-primrycolor-light to-primrycolor-dark text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
                         <Star className="w-4 h-4" />
                         Most Popular
                       </div>
@@ -394,13 +394,11 @@ export default function PricingPage() {
                   )}
 
                   {/* Glow effect */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${pkg.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
-                  />
+                  <div className={`absolute inset-0  rounded-3xl`} />
 
                   {/* Animated border */}
                   <div
-                    className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${pkg.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}
+                    className={`absolute inset-0 rounded-3xl bg-gradient-to-r bg-primrycolor-light opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}
                   />
 
                   {/* Icon */}
@@ -414,7 +412,7 @@ export default function PricingPage() {
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">
                     {pkg.name}
                   </h3>
-                  <p className="text-gray-400 mb-6 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                  <p className="text-slate-300 mb-6  leading-relaxed text-lg transition-colors duration-300">
                     {pkg.description}
                   </p>
 
@@ -448,7 +446,7 @@ export default function PricingPage() {
                       {pkg.includes.map((item, itemIndex) => (
                         <li
                           key={itemIndex}
-                          className="text-sm text-gray-300 flex items-center gap-2 group-hover:text-gray-200 transition-colors duration-300"
+                          className="text-sm text-slate-400 flex items-center gap-2 group-hover:text-gray-200 transition-colors duration-300"
                         >
                           <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0" />
                           {item}
@@ -462,7 +460,7 @@ export default function PricingPage() {
                     {pkg.features.map((feature, featureIndex) => (
                       <li
                         key={featureIndex}
-                        className="flex items-center gap-3 text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300"
+                        className="flex items-center gap-3 text-sm text-gray-400 group-hover:text-slate-200 transition-colors duration-300"
                       >
                         <Check className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                         {feature}
@@ -474,7 +472,7 @@ export default function PricingPage() {
                   <button
                     className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
                       pkg.popular
-                        ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-xl hover:shadow-purple-500/25 hover:scale-105"
+                        ? "bg-gradient-to-r from-primrycolor-light to-primrycolor-dark text-white hover:shadow-xl hover:shadow-purple-500/25 hover:scale-105"
                         : "bg-gradient-to-r from-gray-800 to-gray-700 text-white hover:from-gray-700 hover:to-gray-600 hover:scale-105"
                     }`}
                   >
@@ -498,7 +496,7 @@ export default function PricingPage() {
                     Pricing
                   </span>
                 </h2>
-                <p className="text-xl text-gray-300">
+                <p className="text-xl text-slate-300">
                   Professional infrastructure services with transparent,
                   one-time pricing
                 </p>
@@ -506,7 +504,7 @@ export default function PricingPage() {
 
               <div className="services-list bg-gray-900/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-800 shadow-2xl">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 p-8">
+                <div className="bg-gradient-to-r from-primrycolor-light  to-primrycolor-dark p-8">
                   <div className="flex items-center gap-3 mb-2">
                     <Sparkles className="w-6 h-6 text-white" />
                     <h3 className="text-2xl font-bold text-white">
@@ -538,7 +536,7 @@ export default function PricingPage() {
                             <h4 className="font-bold text-white text-lg group-hover:text-blue-300 transition-colors duration-300">
                               {service.name}
                             </h4>
-                            <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300">
+                            <p className="text-gray-400 text-sm group-hover:text-slate-200 transition-colors duration-300">
                               {service.description}
                             </p>
                           </div>
@@ -568,14 +566,14 @@ export default function PricingPage() {
                 <div className="p-8 bg-gray-800/30 backdrop-blur-sm text-center border-t border-gray-800">
                   <div className="flex items-center justify-center gap-2 mb-4">
                     <Zap className="w-5 h-5 text-yellow-400" />
-                    <p className="text-gray-300 font-medium">
+                    <p className=" font-medium">
                       Need multiple services? Check out our bundled packages for
                       significant savings.
                     </p>
                   </div>
                   <button
                     onClick={() => setShowIndividual(false)}
-                    className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
+                    className="inline-flex items-center gap-3 bg-gradient-to-r from-primrycolor-light to-primrycolor-dark  text-white px-8 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
                   >
                     <Sparkles className="w-5 h-5" />
                     View Packages & Save More
@@ -679,12 +677,12 @@ export default function PricingPage() {
             ].map((faq, index) => (
               <div
                 key={index}
-                className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-gray-600 transition-all duration-300 group"
+                className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-primrycolor-light transition-all duration-300 group"
               >
                 <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors duration-300">
                   {faq.question}
                 </h3>
-                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                <p className="text-gray-400 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
                   {faq.answer}
                 </p>
               </div>
@@ -695,7 +693,7 @@ export default function PricingPage() {
 
       {/* Final CTA */}
       <section className="py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/50 to-blue-900/20" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]" />
 
         <div className="relative max-w-4xl mx-auto text-center">
@@ -706,20 +704,20 @@ export default function PricingPage() {
               Infrastructure?
             </span>
           </h2>
-          <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+          <p className="text-xl text-slate-200 mb-12 leading-relaxed">
             Let's discuss which package best fits your security and
             infrastructure needs. Get started today.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               href="/services"
-              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-10 py-5 rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primrycolor-light to-primrycolor-dark  text-white px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
             >
               <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
               View All Services
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
-            <button className="inline-flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm border-2 border-gray-600 hover:border-blue-400 text-gray-300 hover:text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-blue-500/10 transition-all duration-300">
+            <button className="inline-flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm border-2 border-gray-600 hover:border-blue-400 text-slate-200 hover:text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-blue-500/10 transition-all duration-300">
               <Star className="w-5 h-5" />
               Schedule Consultation
             </button>

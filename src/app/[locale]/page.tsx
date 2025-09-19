@@ -28,38 +28,21 @@ import LoadingIntro from "@/src/components/feedback/LoadingIntro";
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
-  const t = useTranslations("HomePage");
 
-  const techLogos = [
-    { node: <SiReact />, title: "React", href: "https://react.dev" },
-    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-    {
-      node: <SiTypescript />,
-      title: "TypeScript",
-      href: "https://www.typescriptlang.org",
-    },
-    {
-      node: <SiTailwindcss />,
-      title: "Tailwind CSS",
-      href: "https://tailwindcss.com",
-    },
-  ];
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
   return (
-    <section className="  ">
-      <LoadingIntro />
-      <FullScreenSlider />
-      <PinnedSlider />
-      <ControlFreedomSection />
-      <ExplorePlatform />
-      <ProcessWorkflow />
-      {/* <WhatSetsUsApart />
-      <Reviews />
-      <CtaBanner /> */}
-      {/* <Testimonials /> */}
-    </section>
+    <div className="relative">
+      {/* Content (rendered immediately but hidden while loading) */}
+      <div className="transition-opacity duration-500 ">
+        <FullScreenSlider />
+        <PinnedSlider />
+        <ControlFreedomSection />
+        <ExplorePlatform />
+        <ProcessWorkflow />
+        {/* other content */}
+      </div>
+
+      {/* Loader overlay */}
+      {isLoading && <LoadingIntro onComplete={() => setIsLoading(false)} />}
+    </div>
   );
 }

@@ -33,6 +33,8 @@ const config = {
       },
       fontFamily: {
         antonio: ["var(--font-antonio)", "sans-serif"],
+        magistral: ["var(--font-magistral)", "sans-serif"],
+        almarai: ["var(--font-almarai)", "sans-serif"],
         zentry: ["zentry", "sans-serif"],
         general: ["general", "sans-serif"],
         "circular-web": ["circular-web", "sans-serif"],
