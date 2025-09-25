@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { MessageCircle, Mail, Phone, X, Send } from "lucide-react";
+import { MessageCircle, Mail, Phone, X, Send, Calendar } from "lucide-react";
+import Link from "next/link";
 
 export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,24 +71,24 @@ export default function FloatingContact() {
         }
       );
 
-    //   // Stagger animation for menu items
-    //   gsap.fromTo(
-    //     ".contact-item",
-    //     {
-    //       opacity: 0,
-    //       x: 20,
-    //       scale: 0.8,
-    //     },
-    //     {
-    //       opacity: 1,
-    //       x: 0,
-    //       scale: 1,
-    //       duration: 0.3,
-    //       stagger: 0.1,
-    //       delay: 0.2,
-    //       ease: "power2.out",
-    //     }
-    //   );
+      //   // Stagger animation for menu items
+      //   gsap.fromTo(
+      //     ".contact-item",
+      //     {
+      //       opacity: 0,
+      //       x: 20,
+      //       scale: 0.8,
+      //     },
+      //     {
+      //       opacity: 1,
+      //       x: 0,
+      //       scale: 1,
+      //       duration: 0.3,
+      //       stagger: 0.1,
+      //       delay: 0.2,
+      //       ease: "power2.out",
+      //     }
+      //   );
     } else {
       // Close animation
       gsap.to(menuRef.current, {
@@ -214,6 +215,22 @@ export default function FloatingContact() {
               <Send className="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all duration-300" />
             </button>
           </div>
+
+          {/* Schedule Appointment Option */}
+          <Link href="https://vanhard.net/apps/appointments/pub/twbM2CzBVDzltVbt/form">
+            <button className="contact-item w-full flex items-center gap-4 p-4 rounded-xl border border-orange-100 hover:from-orange-100 hover:to-amber-100 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Calendar className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1 text-left">
+                <h4 className="font-semibold text-slate-200 group-hover:text-orange-700 transition-colors">
+                  Schedule Appointment
+                </h4>
+                <p className="text-sm text-slate-200">Book a consultation</p>
+              </div>
+              <Send className="w-4 h-4 text-gray-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all duration-300" />
+            </button>
+          </Link>
 
           {/* Footer */}
           <div className="text-center mt-4 pt-4 border-t border-gray-100">

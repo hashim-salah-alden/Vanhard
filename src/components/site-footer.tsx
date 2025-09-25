@@ -134,13 +134,7 @@ const Footer = () => {
                 href="/"
                 className="flex items-center justify-center md:justify-start gap-3 mb-4 "
               >
-                <Image src="/footer-logo.png" alt={""} width={75} height={50} />
-                <Image
-                  src="/footer-text.png"
-                  alt={""}
-                  width={175}
-                  height={50}
-                />
+                <Image src="/logo-blue.svg" alt={""} width={300} height={150} />
               </Link>
               <p className="text-primary-foreground/80 leading-relaxed">
                 Professional system installation and security services with

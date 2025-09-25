@@ -15,6 +15,7 @@ import {
   Shield,
   Zap,
   Award,
+  Calendar,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -280,10 +281,10 @@ const Contact = () => {
             {/* Contact Form */}
             <div ref={formRef}>
               <div className="mb-8">
-                <h2 className="text-4xl font-bold text-gradient mb-4">
+                <h2 className="text-4xl font-bold text-slate-200 text-gradient mb-4">
                   Start Your Project
                 </h2>
-                <p className="text-xl text-gray-400">
+                <p className="text-xl text-slate-200">
                   Tell us about your infrastructure needs and we'll create a
                   custom solution for you.
                 </p>
@@ -416,7 +417,7 @@ const Contact = () => {
             {/* Info Section */}
             <div ref={mapRef}>
               <div className="mb-8">
-                <h2 className="text-4xl font-bold text-gradient mb-4">
+                <h2 className="text-4xl font-bold text-slate-200 text-gradient mb-4">
                   Why Choose VANHARD?
                 </h2>
                 <p className="text-xl text-gray-400 mb-6">

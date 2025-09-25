@@ -149,7 +149,7 @@ export default function LoadingIntro({ onComplete }: LoadingIntroProps) {
       {/* Main Logo */}
       <div ref={logoRef} className="mb-32">
         <Image
-          src="/logo-light.png"
+          src="/logo-van.png"
           alt="logo"
           className="w-48 md:w-72 h-12 md:h-16"
           width={500}

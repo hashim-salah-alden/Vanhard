@@ -74,7 +74,7 @@ const NavBar = () => {
           {/* Logo and Product button */}
           <div className="flex items-center gap-7">
             <Image
-              src="/logo-light.png"
+              src="/logo-van.png"
               alt="logo"
               className="w-48 md:w-72 h-12 md:h-16"
               width={500}
