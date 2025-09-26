@@ -32,12 +32,21 @@ const CreativeMobileNavbar: React.FC = () => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.height = "100%";
+      document.documentElement.style.height = "100%";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      document.body.style.height = "";
+      document.documentElement.style.height = "";
     }
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      document.body.style.height = "";
+      document.documentElement.style.height = "";
     };
   }, [isOpen]);
 
@@ -256,7 +265,7 @@ const CreativeMobileNavbar: React.FC = () => {
                                 {item.id}
                               </span>
                               <div>
-                                <h3 className="text-white text-3xl uppercase font-bold group-hover:text-purple-300 transition-colors">
+                                <h3 className="text-white text-xl uppercase font-bold group-hover:text-purple-300 transition-colors">
                                   {item.title}
                                 </h3>
                                 <p className="text-gray-400 text-sm">
