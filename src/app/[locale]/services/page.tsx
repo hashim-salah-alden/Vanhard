@@ -302,10 +302,12 @@ export default function ServicesPage() {
               View Pricing & Packages
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
-            <button className="inline-flex items-center gap-3 border-2 border-gray-600 hover:border-blue-400 text-gray-300 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-500/10 transition-all duration-300">
-              <Star className="w-5 h-5" />
-              Schedule Consultation
-            </button>
+            <Link href="https://vanhard.net/apps/appointments/pub/twbM2CzBVDzltVbt/form">
+              <button className="inline-flex items-center gap-3 border-2 border-gray-600 hover:border-blue-400 text-gray-300 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-500/10 transition-all duration-300">
+                <Star className="w-5 h-5" />
+                Schedule Consultation
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -353,9 +355,7 @@ export default function ServicesPage() {
                 <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors duration-300 leading-tight">
                   {service.title}
                 </h3>
-                <p
-                  className="text-slate-300 mb-6 leading-relaxed text-sm md:text-[16px] tracking-wide group-hover:text-slate-200 transition-colors duration-300"
-                >
+                <p className="text-slate-300 mb-6 leading-relaxed text-sm md:text-[16px] tracking-wide group-hover:text-slate-200 transition-colors duration-300">
                   {service.description}
                 </p>
 

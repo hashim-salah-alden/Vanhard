@@ -169,7 +169,7 @@ const ProcessWorkflow = () => {
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent mb-6 leading-tight">
               Workflow Excellence
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               A systematic approach to delivering world-class infrastructure
               solutions with precision, security, and reliability at every step.
             </p>

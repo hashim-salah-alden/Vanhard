@@ -24,64 +24,78 @@ const Footer = () => {
   const columnsRef = useRef<HTMLDivElement[]>([]);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     // Animate logo with rotation and scale
-  //     gsap.fromTo(
-  //       logoRef.current,
-  //       { opacity: 0, scale: 0.5, rotation: -180 },
-  //       {
-  //         opacity: 1,
-  //         scale: 1,
-  //         rotation: 0,
-  //         duration: 1.2,
-  //         ease: "back.out(1.7)",
-  //         scrollTrigger: {
-  //           trigger: footerRef.current,
-  //           start: "top 90%",
-  //           toggleActions: "play none none reverse",
-  //         },
-  //       }
-  //     );
+  useEffect(() => {
+    if (!footerRef.current) return;
 
-  //     // Animate columns with stagger
-  //     gsap.fromTo(
-  //       columnsRef.current,
-  //       { opacity: 0, y: 30 },
-  //       {
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 0.8,
-  //         stagger: 0.2,
-  //         ease: "power3.out",
-  //         scrollTrigger: {
-  //           trigger: footerRef.current,
-  //           start: "top 85%",
-  //           toggleActions: "play none none reverse",
-  //         },
-  //       }
-  //     );
+    // GSAP animations
+    const ctx = gsap.context(() => {
+      // Animate logo
+      if (logoRef.current) {
+        gsap.fromTo(
+          logoRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: logoRef.current,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
 
-  //     // Animate bottom section
-  //     gsap.fromTo(
-  //       bottomRef.current,
-  //       { opacity: 0, y: 20 },
-  //       {
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 0.6,
-  //         delay: 0.8,
-  //         scrollTrigger: {
-  //           trigger: footerRef.current,
-  //           start: "top 85%",
-  //           toggleActions: "play none none reverse",
-  //         },
-  //       }
-  //     );
-  //   });
+      // Animate columns
+      columnsRef.current.forEach((column, index) => {
+        if (column) {
+          gsap.fromTo(
+            column,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: index * 0.1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: column,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        }
+      });
 
-  //   return () => ctx.revert();
-  // }, []);
+      // Animate bottom section
+      if (bottomRef.current) {
+        gsap.fromTo(
+          bottomRef.current,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: 0.4,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: bottomRef.current,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const contactInfo = [
     { icon: Mail, label: "Email", value: "contact@vanhard.com" },
@@ -110,43 +124,51 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="bg-[#171717] text-slate-200 overflow-hidden relative"
+      className="bg-[#171717] text-slate-200 relative w-full border-t border-gray-600/50 mt-auto"
     >
+      {/* Solid background overlay */}
+      <div className="absolute inset-0 bg-[#171717] z-0"></div>
+
       {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 border border-primary-foreground/20 rounded-full"></div>
-        <div className="absolute top-32 right-20 w-20 h-20 border border-primary-foreground/20 rounded-full"></div>
-        <div className="absolute bottom-20 left-1/4 w-16 h-16 border border-primary-foreground/20 rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-24 h-24 border border-primary-foreground/20 rounded-full"></div>
+      <div className="absolute inset-0 opacity-10 z-10">
+        <div className="absolute top-10 left-10 w-32 h-32 border border-blue-500/20 rounded-full"></div>
+        <div className="absolute top-32 right-20 w-20 h-20 border border-blue-500/20 rounded-full"></div>
+        <div className="absolute bottom-20 left-1/4 w-16 h-16 border border-blue-500/20 rounded-full"></div>
+        <div className="absolute bottom-10 right-10 w-24 h-24 border border-blue-500/20 rounded-full"></div>
       </div>
 
-      <div className="container mx-auto px-6 py-16 relative">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Brand Section */}
+      <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8 md:mb-12 w-full">
           <div
             ref={(el) => {
               if (el) columnsRef.current[0] = el;
             }}
-            className="lg:col-span-1"
+            className="md:col-span-2 lg:col-span-1 order-1"
           >
             <div ref={logoRef} className="mb-6">
               <Link
                 href="/"
-                className="flex items-center justify-center md:justify-start gap-3 mb-4 "
+                className="flex items-center justify-center md:justify-start gap-3 mb-4"
               >
-                <Image src="/logo-blue.svg" alt={""} width={300} height={150} />
+                <Image
+                  src="/logo-blue.svg"
+                  alt="VANHARD Logo"
+                  width={350}
+                  height={150}
+                  className="w-48  lg:w-64 h-auto"
+                  priority
+                />
               </Link>
-              <p className="text-primary-foreground/80 leading-relaxed">
+              <p className="text-slate-300 leading-relaxed text-base md:text-lg text-center md:text-left">
                 Professional system installation and security services with
                 complete client control and transparency.
               </p>
             </div>
 
-            {/* Creative decorative element */}
-            <div className="flex items-center gap-2 opacity-60">
-              <Lock className="w-4 h-4" />
-              <div className="flex-1 h-px bg-gradient-to-r from-primary-foreground/40 to-transparent"></div>
-              <Server className="w-4 h-4" />
+            <div className="flex items-center gap-2 opacity-60 mt-6 justify-center md:justify-start">
+              <Lock className="w-4 h-4 text-blue-400" />
+              <div className="flex-1 h-px bg-gradient-to-r from-blue-400/40 to-transparent"></div>
+              <Server className="w-4 h-4 text-blue-400" />
             </div>
           </div>
 
@@ -155,18 +177,19 @@ const Footer = () => {
             ref={(el) => {
               if (el) columnsRef.current[1] = el;
             }}
+            className="order-3 md:order-2 lg:order-2"
           >
-            <h4 className="text-xl font-semibold mb-6 text-primary-foreground">
+            <h4 className="text-xl md:text-2xl font-semibold mb-6 text-white text-center md:text-left">
               Services
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {services.map((service, index) => (
                 <li
                   key={index}
                   className="flex items-center gap-3 group cursor-pointer"
                 >
-                  <div className="w-2 h-2 bg-primary-foreground/60 rounded-full group-hover:bg-primary-foreground transition-colors duration-300"></div>
-                  <span className="text-primary-foreground/80 group-hover:text-primary-foreground transition-colors duration-300">
+                  <div className="w-3 h-3 bg-blue-500 rounded-full group-hover:bg-blue-400 transition-colors duration-300 flex-shrink-0"></div>
+                  <span className="text-slate-300 text-lg group-hover:text-white transition-colors duration-300">
                     {service}
                   </span>
                 </li>
@@ -179,23 +202,24 @@ const Footer = () => {
             ref={(el) => {
               if (el) columnsRef.current[2] = el;
             }}
+            className="order-4 md:order-3 lg:order-3"
           >
-            <h4 className="text-xl font-semibold mb-6 text-primary-foreground">
+            <h4 className="text-xl md:text-2xl font-semibold mb-6 text-white text-center md:text-left">
               Contact
             </h4>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {contactInfo.map((item, index) => {
                 const IconComponent = item.icon;
                 return (
-                  <div key={index} className="flex items-start gap-3 group">
-                    <div className="w-10 h-10 bg-primary-foreground/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-primary-foreground/20 group-hover:bg-primary-foreground/20 transition-colors duration-300">
-                      <IconComponent className="w-4 h-4 text-primary-foreground" />
+                  <div key={index} className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 bg-blue-500/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors duration-300 flex-shrink-0">
+                      <IconComponent className="w-5 h-5 text-blue-400" />
                     </div>
-                    <div>
-                      <div className="text-primary-foreground/60 text-sm">
+                    <div className="min-w-0 flex-1">
+                      <div className="text-slate-400 text-sm mb-1">
                         {item.label}
                       </div>
-                      <div className="text-primary-foreground group-hover:text-primary-foreground/90 transition-colors duration-300">
+                      <div className="text-white text-lg group-hover:text-blue-300 transition-colors duration-300 break-words">
                         {item.value}
                       </div>
                     </div>
@@ -210,81 +234,81 @@ const Footer = () => {
             ref={(el) => {
               if (el) columnsRef.current[3] = el;
             }}
+            className="md:col-span-2 lg:col-span-1 order-2 md:order-4 lg:order-4"
           >
-            <h4 className="text-xl font-semibold mb-6 text-primary-foreground">
+            <h4 className="text-xl md:text-2xl font-semibold mb-6 text-white text-center md:text-left">
               Connect
             </h4>
 
             {/* Social Links */}
-            <div className="flex gap-3 mb-6">
+            <div className="flex gap-4 mb-8 justify-center md:justify-start">
               {socialLinks.map((social, index) => {
                 const IconComponent = social.icon;
                 return (
                   <a
                     key={index}
                     href={social.href}
-                    className="w-12 h-12 bg-primary-foreground/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-primary-foreground/20 hover:bg-primary-foreground/20 hover:scale-110 transition-all duration-300 group"
+                    className="w-14 h-14 bg-blue-500/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-blue-500/20 hover:bg-blue-500/20 hover:scale-110 transition-all duration-300 group"
                     aria-label={social.label}
                   >
-                    <IconComponent className="w-5 h-5 text-primary-foreground group-hover:scale-110 transition-transform duration-300" />
+                    <IconComponent className="w-6 h-6 text-blue-400 group-hover:scale-110 transition-transform duration-300" />
                   </a>
                 );
               })}
             </div>
 
             {/* Newsletter */}
-            <div className="bg-primary-foreground/5 backdrop-blur-sm rounded-xl p-4 border border-primary-foreground/20">
-              <h5 className="font-semibold mb-2 text-primary-foreground">
+            <div className="bg-blue-500/5 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
+              <h5 className="font-semibold mb-3 text-white text-lg text-center md:text-left">
                 Stay Updated
               </h5>
-              <p className="text-primary-foreground/70 text-sm mb-3">
+              <p className="text-slate-300 text-base mb-4 text-center md:text-left">
                 Get security insights and updates
               </p>
-              <div className="flex gap-2">
+              <div className="flex flex-col gap-3">
                 <input
                   type="email"
                   placeholder="your@email.com"
-                  className="flex-1 px-3 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg text-primary-foreground placeholder-primary-foreground/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary-foreground/30"
+                  className="w-full px-4 py-3 bg-white/10 border border-blue-500/20 rounded-lg text-white placeholder-slate-400 text-base focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50"
                 />
-                <button className="px-4 py-2 bg-primary-foreground/20 hover:bg-primary-foreground/30 rounded-lg transition-colors duration-300 text-sm font-medium">
+                <button className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors duration-300 text-base font-medium whitespace-nowrap hover:scale-105 transform transition-transform">
                   Subscribe
                 </button>
               </div>
             </div>
+            
           </div>
+          
         </div>
-
-        {/* Bottom Section */}
-        <div
-          ref={bottomRef}
-          className="border-t border-primary-foreground/20 pt-8"
-        >
+     {/* Bottom Section */}
+        <div ref={bottomRef} className="border-t border-gray-600/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-primary-foreground/70 text-sm">
+            <div className="text-slate-400 text-base text-center md:text-left">
               © 2024 VANHARD. All rights reserved.
             </div>
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex items-center gap-6 text-base flex-wrap justify-center">
               <a
                 href="#"
-                className="text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
+                className="text-slate-400 hover:text-white transition-colors duration-300 whitespace-nowrap"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
+                className="text-slate-400 hover:text-white transition-colors duration-300 whitespace-nowrap"
               >
                 Terms of Service
               </a>
               <a
                 href="#"
-                className="text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
+                className="text-slate-400 hover:text-white transition-colors duration-300 whitespace-nowrap"
               >
                 Security
               </a>
             </div>
           </div>
         </div>
+   
       </div>
     </footer>
   );

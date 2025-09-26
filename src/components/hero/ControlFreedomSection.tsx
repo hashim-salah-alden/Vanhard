@@ -23,7 +23,7 @@ const ControlFreedomSection = () => {
                 (Your Environment)
               </p>
             </div>
-            <p className="text-xl text-white/90 text-center leading-relaxed max-w-md mx-auto lg:mx-0">
+            <p className="text-base md:text-xl text-white/90 text-center leading-relaxed max-w-md mx-auto lg:mx-0">
               YOU RETAIN FULL CONTROL AND OWNERSHIP. WE DON&apos;T RESELL,
               LICENSE, OR HOST ANYTHING.
             </p>
@@ -40,7 +40,7 @@ const ControlFreedomSection = () => {
                 (Your Future)
               </p>
             </div>
-            <p className="text-xl text-white/90 text-center leading-relaxed max-w-md mx-auto lg:mx-0">
+            <p className="md:text-xl text-white/90 text-center leading-relaxed max-w-md mx-auto lg:mx-0">
               EACH SETUP IS DELIVERED WITH CLEAR DOCUMENTATION. YOU ARE FREE TO
               MAINTAIN, MODIFY, OR SCALE IT AS YOU WISH.
             </p>

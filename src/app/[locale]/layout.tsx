@@ -56,7 +56,7 @@ html {
 }
         `}</style> */}
       </head>
-      <body className="font-antonio scroll-smooth">
+      <body className="font-antonio scroll-smooth bg-[#171717]">
         <NextIntlClientProvider>
           {/* <SmoothScrollWrapper> */}
           {/* <LoadingIntro /> */}

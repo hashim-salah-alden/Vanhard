@@ -717,10 +717,13 @@ export default function PricingPage() {
               View All Services
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
-            <button className="inline-flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm border-2 border-gray-600 hover:border-blue-400 text-slate-200 hover:text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-blue-500/10 transition-all duration-300">
-              <Star className="w-5 h-5" />
-              Schedule Consultation
-            </button>
+
+            <Link href="https://vanhard.net/apps/appointments/pub/twbM2CzBVDzltVbt/form">
+              <button className="inline-flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm border-2 border-gray-600 hover:border-blue-400 text-slate-200 hover:text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-blue-500/10 transition-all duration-300">
+                <Star className="w-5 h-5" />
+                Schedule Consultation
+              </button>
+            </Link>
           </div>
         </div>
       </section>
